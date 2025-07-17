@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroFarm - Фермерська гра</title>
+    <meta name="description" content="Грай у AgroFarm - найкращу фермерську гру онлайн! Вирощуй рослини, продавай врожай та будуй свою ферму мрії.">
+    <meta name="keywords" content="фермерська гра, онлайн гра, ферма, рослини, врожай, telegram">
+    
+    <!-- Open Graph для соціальних мереж -->
+    <meta property="og:title" content="AgroFarm - Фермерська гра">
+    <meta property="og:description" content="Грай у AgroFarm - найкращу фермерську гру онлайн!">
+    <meta property="og:image" content="./assets/images/og-image.jpg">
+    <meta property="og:url" content="https://yourusername.github.io/farm-game/">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+    
+    <!-- Стилі -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    
+    <!-- Шрифти -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Головний контент -->
+    <div class="main-container">
+        <!-- Хедер з логотипом -->
+        <header class="header">
+            <div class="logo-container">
+                <img src="./assets/images/logo.png" alt="AgroFarm Logo" class="logo">
+                <h1 class="game-title">AgroFarm</h1>
+            </div>
+            
+            <!-- Перемикач мови -->
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="uk">УКР</button>
+                <button class="lang-btn" data-lang="en">ENG</button>
+            </div>
+        </header>
+
+        <!-- Центральна секція з відео та кнопкою -->
+        <section class="hero-section">
+            <!-- Відео контейнер -->
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="hero-video">
+                    <source src="./assets/videos/plant-growth.mp4" type="video/mp4">
+                    <!-- Fallback зображення якщо відео не завантажується -->
+                    <img src="./assets/images/plant-growth-fallback.gif" alt="Plant Growth Animation">
+                </video>
+                <div class="video-frame"></div>
+            </div>
+            
+            <!-- Контейнер для кнопки -->
+            <div class="play-button-container">
+                <button class="play-button" onclick="playGame()">
+                    <span class="play-text" data-translate="playFree">ГРАТИ БЕЗКОШТОВНО</span>
+                    <div class="button-glow"></div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Соціальні кнопки -->
+        <section class="social-buttons">
+            <a href="#" class="social-btn telegram" data-translate="telegramCommunity">
+                <i class="icon-telegram"></i>
+                <span>Telegram спільнота</span>
+            </a>
+            <a href="#" class="social-btn facebook" data-translate="facebookCommunity">
+                <i class="icon-facebook"></i>
+                <span>Facebook спільнота</span>
+            </a>
+            <a href="#" class="social-btn youtube" data-translate="youtube">
+                <i class="icon-youtube"></i>
+                <span>YouTube</span>
+            </a>
+            <a href="#" class="social-btn token" data-translate="aboutToken">
+                <i class="icon-token"></i>
+                <span>Про токен</span>
+            </a>
+            <a href="#" class="social-btn contact" data-translate="contact">
+                <i class="icon-contact"></i>
+                <span>Контакти</span>
+            </a>
+        </section>
+
+        <!-- Основні секції -->
+        <section class="content-sections">
+            <!-- Інструкції -->
+            <div class="content-card instructions-card">
+                <h2 class="card-title" data-translate="instructions">Інструкції</h2>
+                <div class="instructions-container">
+                    <div class="instructions-slider">
+                        <div class="instructions-track" id="instructionsSlider">
+                            <!-- Сюди додаються скріншоти з інструкціями -->
+                            <!-- Приклад структури: -->
+                            <div class="instruction-slide" style="background-image: url('./assets/screenshots/instruction-1.jpg');">
+                                <div class="instruction-overlay">
+                                    <h3 data-translate="step1Title">Крок 1: Посадка рослин</h3>
+                                    <p data-translate="step1Description">Оберіть тип рослини та посадіть її на вільну грядку. Кожна рослина має свій час росту.</p>
+                                </div>
+                            </div>
+                            <!-- Повторити для всіх 15 інструкцій -->
+                        </div>
+                        <button class="instruction-nav prev" onclick="slideInstructions(-1)">‹</button>
+                        <button class="instruction-nav next" onclick="slideInstructions(1)">›</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Скріншоти -->
+            <div class="content-card screenshots-card">
+                <h2 class="card-title" data-translate="screenshots">Скріншоти</h2>
+                <div class="screenshots-container">
+                    <button class="pause-btn" id="pauseScreenshotsBtn" aria-label="Пауза" tabindex="0">
+                        <svg id="pauseIcon" viewBox="0 0 32 32">
+                            <rect x="7" y="6" width="6" height="20" rx="2"/>
+                            <rect x="19" y="6" width="6" height="20" rx="2"/>
+                        </svg>
+                        <svg id="playIcon" viewBox="0 0 32 32" style="display:none;">
+                            <polygon points="10,6 26,16 10,26"/>
+                        </svg>
+                    </button>
+                    <div class="auto-slider" id="screenshotsSlider">
+                        <!-- Сюди додаються скріншоти гри -->
+                        <!-- Приклад структури: -->
+                        <div class="screenshot-slide" style="background-image: url('./assets/screenshots/game-1.jpg');"></div>
+                        <!-- Повторити для всіх 10 скріншотів -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Спільнота -->
+            <div class="content-card community-card">
+                <h2 class="card-title" data-translate="community">Спільнота</h2>
+                <div class="community-container">
+                    <a href="#" class="community-link" onclick="openTelegramGroup()">
+                        <img src="./assets/images/telegram-community.jpg" alt="Telegram спільнота" class="community-image">
+                        <div class="community-overlay">
+                            <div class="community-text">
+                                <h3 data-translate="joinCommunity">Приєднуйтесь до спільноти</h3>
+                                <p data-translate="communityDescription">Обговорюйте стратегії, діліться досвідом та отримуйте останні новини</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Історія -->
+            <div class="content-card story-card">
+                <h2 class="card-title" data-translate="story">Історія</h2>
+                <div class="story-container">
+                    <div class="story-content">
+                        <h3 data-translate="storyTitle">Ласкаво просимо до світу AgroFarm!</h3>
+                        <p data-translate="storyDescription1">
+                            Зануртесь у захоплюючий світ фермерства, де кожна рослина - це нова пригода! 
+                            Вирощуйте огірки, помідори, моркву та кукурудзу, доглядайте за ними та збирайте багатий врожай.
+                        </p>
+                        <p data-translate="storyDescription2">
+                            Ваша ферма продовжує працювати навіть коли ви офлайн. Рослини ростуть, але остерігайтесь шкідників! 
+                            Використовуйте добрива для прискорення росту та пестициди для захисту врожаю.
+                        </p>
+                        <p data-translate="storyDescription3">
+                            Продавайте свій врожай на динамічному ринку, де ціни змінюються залежно від попиту та пропозиції. 
+                            Станьте найкращим фермером та очоліть лідерборд!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p data-translate="footerText">© 2024 AgroFarm. Всі права захищені.</p>
+                <div class="footer-links">
+                    <a href="#" data-translate="privacy">Політика конфіденційності</a>
+                    <a href="#" data-translate="terms">Умови використання</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Скрипти -->
+    <script src="./js/translations.js"></script>
+    <script src="./js/sliders.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
