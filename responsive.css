@@ -1,0 +1,781 @@
+/* Адаптивні стилі та додаткові анімації для FARMERAMA сайту */
+
+/* Додаткові стилі для індикаторів слайдера */
+.indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.instruction-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.instruction-indicator.active {
+    background: #FFC107;
+    transform: scale(1.2);
+}
+
+.instruction-indicator:hover {
+    background: rgba(255, 193, 7, 0.7);
+    transform: scale(1.1);
+}
+
+/* Стилі для хедера з анімацією */
+.header {
+    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 10px;
+    padding: 15px 20px;
+}
+
+/* Покращені анімації для кнопок */
+.play-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.play-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.play-button:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Стилі для завантаження */
+.loading {
+    opacity: 0.5;
+    pointer-events: none;
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FFC107;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Фіксований фон для планшетів та мобільних */
+@media (max-width: 768px) {
+    html {
+        background-image: url('../assets/images/background_mobile.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    body::before {
+        position: fixed;
+    }
+    
+    /* Альтернативний метод для iOS */
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('../assets/images/background_mobile.jpg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        z-index: -2;
+        pointer-events: none;
+        /* Примусова прискорення GPU */
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        will-change: transform;
+    }
+    /* Оптимізація для планшетів */
+    .main-container {
+        padding: 15px;
+        max-width: 100%;
+    }
+    
+    .content-sections {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        max-width: 100%;
+    }
+    
+    .content-card {
+        padding: 20px;
+        margin-bottom: 15px;
+        height: auto;
+        min-height: 320px;
+    }
+    
+    .social-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        max-width: 100%;
+    }
+    
+    .social-btn {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    /* Покращення слайдерів для планшетів */
+    .instruction-slide {
+        min-height: 180px;
+    }
+    
+    .screenshot-slide {
+        min-height: 200px;
+    }
+    
+    /* Секція спільноти для планшетів */
+    .community-link {
+        height: 250px;
+    }
+    
+    .community-text h3 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+    
+    .community-text p {
+        font-size: 0.95rem;
+    }
+    
+    /* Секція історії для планшетів */
+    .story-content {
+        height: 250px;
+        padding: 18px;
+    }
+    
+    .story-content h3 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+    
+    .story-content p {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+    
+    /* Оптимізація відео */
+    .video-container {
+        margin-bottom: 25px;
+    }
+    
+    .hero-video {
+        max-width: 90vw;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Мобільний фон для телефонів */
+    html {
+        background-image: url('../assets/images/background_mobile.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    /* Оптимізація для мобільних телефонів */
+    .main-container {
+        padding: 10px;
+        max-width: 100%;
+    }
+    
+    .header {
+        margin: 5px;
+        padding: 10px 15px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 10px;
+        position: relative;
+    }
+    
+    .logo-container {
+        gap: 10px;
+        flex: 1;
+    }
+    
+    .language-switcher {
+        padding: 2px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: scale(0.8);
+        transform-origin: top right;
+    }
+    
+    .lang-btn {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
+    
+    /* Соціальні кнопки для мобільних */
+    .social-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .social-btn {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        padding: 12px 20px;
+        justify-content: center;
+    }
+    
+    /* Контентні картки для мобільних */
+    .content-card {
+        padding: 15px;
+        margin-bottom: 15px;
+        height: auto;
+        min-height: 280px;
+    }
+    
+    .card-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .instructions-container,
+    .instructions-slider,
+    .screenshots-container,
+    .auto-slider,
+    .community-link,
+    .story-content {
+        height: 100%;
+        min-height: 100%;
+    }
+    
+    /* Слайдери для мобільних */
+    .instruction-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+    
+    .instruction-nav.prev { left: 5px; }
+    .instruction-nav.next { right: 5px; }
+    
+    .instruction-overlay h3 {
+        font-size: 1rem;
+    }
+    
+    .instruction-overlay p {
+        font-size: 0.8rem;
+    }
+    
+    /* Секція спільноти для мобільних */
+    .community-link {
+        height: 200px;
+    }
+    
+    .community-text h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    
+    .community-text p {
+        font-size: 0.9rem;
+    }
+    
+    /* Секція історії для мобільних */
+    .story-content {
+        height: 200px;
+        padding: 15px;
+    }
+    
+    .story-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    
+    .story-content p {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+    
+    /* Відео для мобільних */
+    .video-container {
+        margin-bottom: 20px;
+    }
+    
+    .hero-video {
+        width: 90vw;
+        max-width: 280px;
+        height: auto;
+    }
+    
+    /* Футер для мобільних */
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    /* Мобільний фон для дуже маленьких екранів */
+    html {
+        background-image: url('../assets/images/background_mobile.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    /* Для дуже маленьких екранів */
+    .game-title {
+        font-size: 1.6rem;
+    }
+    
+    .play-button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+    
+    .social-btn {
+        padding: 10px 15px;
+        font-size: 0.8rem;
+    }
+    
+    .content-card {
+        padding: 12px;
+    }
+    
+    .hero-video {
+        width: 85vw;
+        max-width: 240px;
+    }
+}
+
+/* Стилі для високих екранів (landscape мобільних) */
+@media (max-height: 500px) and (orientation: landscape) {
+    /* Мобільний фон для landscape орієнтації */
+    html {
+        background-image: url('../assets/images/background_mobile.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    .header {
+        padding: 8px 15px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    
+    .logo-container {
+        flex: 1;
+    }
+    
+    .language-switcher {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: scale(0.7);
+        transform-origin: top right;
+    }
+    
+    .game-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-section {
+        margin-bottom: 20px;
+    }
+    
+    .video-container {
+        margin-bottom: 15px;
+    }
+    
+    .hero-section {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 15px;
+    }
+    
+    .video-container {
+        margin-bottom: 0;
+    }
+    
+    .hero-video {
+        width: 200px;
+        height: 150px;
+    }
+    
+    .play-button {
+        font-size: 1rem;
+        padding: 10px 25px;
+    }
+    
+    .social-buttons {
+        margin-bottom: 25px;
+    }
+    
+    .content-sections {
+        gap: 20px;
+    }
+}
+
+/* Стилі для великих екранів */
+@media (min-width: 1024px) {
+    .main-container {
+        max-width: 1000px;
+        padding: 25px;
+    }
+    
+    .content-sections {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        max-width: 900px;
+    }
+    
+    .hero-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+        text-align: left;
+        max-width: 1000px;
+    }
+    
+    .video-container {
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+    
+    .play-button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hero-video {
+        width: 450px;
+        height: 338px;
+    }
+    
+    .play-button {
+        font-size: 1.6rem;
+        padding: 22px 55px;
+    }
+    
+    .content-card {
+        padding: 30px;
+        height: 450px;
+    }
+    
+    /* Секція спільноти для великих екранів */
+    .community-link {
+        height: 320px;
+    }
+    
+    .community-text h3 {
+        font-size: 1.6rem;
+        margin-bottom: 18px;
+    }
+    
+    .community-text p {
+        font-size: 1.05rem;
+    }
+    
+    /* Секція історії для великих екранів */
+    .story-content {
+        height: 320px;
+        padding: 25px;
+    }
+    
+    .story-content h3 {
+        font-size: 1.6rem;
+        margin-bottom: 18px;
+    }
+    
+    .story-content p {
+        font-size: 1.05rem;
+        margin-bottom: 15px;
+    }
+    
+    .card-title {
+        font-size: 1.7rem;
+    }
+    
+    .instruction-slide {
+        min-height: 200px;
+    }
+    
+    .screenshot-slide {
+        min-height: 320px;
+    }
+    
+    .instructions-container,
+    .instructions-slider,
+    .screenshots-container,
+    .auto-slider,
+    .community-link,
+    .story-content {
+        height: 100%;
+        min-height: 100%;
+    }
+    
+    .social-buttons {
+        flex-direction: row;
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    .social-btn {
+        width: auto;
+        padding: 12px 20px;
+        max-width: none;
+    }
+}
+
+/* Стилі для дуже великих екранів */
+@media (min-width: 1200px) {
+    .main-container {
+        max-width: 1000px;
+    }
+    
+    .hero-section {
+        gap: 80px;
+    }
+    
+    .hero-video {
+        width: 500px;
+        height: 375px;
+    }
+    
+    .play-button {
+        font-size: 1.8rem;
+        padding: 28px 65px;
+    }
+    
+    .content-sections {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 900px;
+    }
+    
+    .content-card {
+        height: 480px;
+    }
+    
+    /* Секція спільноти для дуже великих екранів */
+    .community-link {
+        height: 400px;
+    }
+    
+    .community-text h3 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+    
+    .community-text p {
+        font-size: 1.2rem;
+    }
+    
+    /* Секція історії для дуже великих екранів */
+    .story-content {
+        height: 400px;
+        padding: 30px;
+    }
+    
+    .story-content h3 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+    
+    .story-content p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+}
+
+/* Анімації появи елементів */
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Застосування анімацій */
+.instructions-card {
+    animation: slideInFromLeft 0.8s ease-out;
+}
+
+.screenshots-card {
+    animation: slideInFromRight 0.8s ease-out 0.2s both;
+}
+
+.community-card {
+    animation: slideInFromLeft 0.8s ease-out 0.4s both;
+}
+
+.story-card {
+    animation: slideInFromRight 0.8s ease-out 0.6s both;
+}
+
+.social-buttons {
+    animation: slideInFromBottom 0.8s ease-out 0.3s both;
+}
+
+/* Стилі для темної теми (опціонально) */
+@media (prefers-color-scheme: dark) {
+    .background-overlay {
+        background: linear-gradient(
+            45deg,
+            rgba(76, 175, 80, 0.15) 0%,
+            rgba(255, 193, 7, 0.15) 50%,
+            rgba(255, 152, 0, 0.15) 100%
+        );
+    }
+    
+    .content-card {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .content-card:hover {
+        background: rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* Стилі для зменшеної анімації (accessibility) */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .auto-slider {
+        animation: none;
+    }
+    
+    .background-image {
+        background-attachment: scroll;
+    }
+}
+
+/* Стилі для високої контрастності */
+@media (prefers-contrast: high) {
+    .content-card {
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        background: rgba(0, 0, 0, 0.8);
+    }
+    
+    .social-btn {
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        background: rgba(0, 0, 0, 0.8);
+    }
+    
+    .play-button {
+        border: 2px solid rgba(255, 255, 255, 0.8);
+    }
+}
+
+/* Покращення для друку */
+@media print {
+    .background-container,
+    .video-container,
+    .social-buttons,
+    .instruction-nav {
+        display: none;
+    }
+    
+    .main-container {
+        background: white;
+        color: black;
+    }
+    
+    .content-card {
+        background: white;
+        border: 1px solid black;
+        page-break-inside: avoid;
+    }
+}
+
+/* Спеціальні стилі для iOS пристроїв */
+@supports (-webkit-overflow-scrolling: touch) {
+    @media (max-width: 768px) {
+        html {
+            /* Відключаємо background-attachment: fixed на iOS */
+            background-attachment: scroll;
+        }
+        
+        /* Використовуємо псевдо-елемент для фіксованого фону */
+        body::after {
+            position: fixed !important;
+            background-attachment: scroll;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+    }
+} 
