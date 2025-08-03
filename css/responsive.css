@@ -163,6 +163,36 @@
         min-height: 200px;
     }
     
+    /* Секція спільноти для планшетів */
+    .community-link {
+        height: 250px;
+    }
+    
+    .community-text h3 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+    
+    .community-text p {
+        font-size: 0.95rem;
+    }
+    
+    /* Секція історії для планшетів */
+    .story-content {
+        height: 250px;
+        padding: 18px;
+    }
+    
+    .story-content h3 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+    
+    .story-content p {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+    
     /* Оптимізація відео */
     .video-container {
         margin-bottom: 25px;
@@ -271,6 +301,36 @@
     
     .instruction-overlay p {
         font-size: 0.8rem;
+    }
+    
+    /* Секція спільноти для мобільних */
+    .community-link {
+        height: 200px;
+    }
+    
+    .community-text h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    
+    .community-text p {
+        font-size: 0.9rem;
+    }
+    
+    /* Секція історії для мобільних */
+    .story-content {
+        height: 200px;
+        padding: 15px;
+    }
+    
+    .story-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    
+    .story-content p {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
     }
     
     /* Відео для мобільних */
@@ -445,6 +505,36 @@
         height: 450px;
     }
     
+    /* Секція спільноти для великих екранів */
+    .community-link {
+        height: 320px;
+    }
+    
+    .community-text h3 {
+        font-size: 1.6rem;
+        margin-bottom: 18px;
+    }
+    
+    .community-text p {
+        font-size: 1.05rem;
+    }
+    
+    /* Секція історії для великих екранів */
+    .story-content {
+        height: 320px;
+        padding: 25px;
+    }
+    
+    .story-content h3 {
+        font-size: 1.6rem;
+        margin-bottom: 18px;
+    }
+    
+    .story-content p {
+        font-size: 1.05rem;
+        margin-bottom: 15px;
+    }
+    
     .card-title {
         font-size: 1.7rem;
     }
@@ -508,6 +598,36 @@
     
     .content-card {
         height: 480px;
+    }
+    
+    /* Секція спільноти для дуже великих екранів */
+    .community-link {
+        height: 400px;
+    }
+    
+    .community-text h3 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+    
+    .community-text p {
+        font-size: 1.2rem;
+    }
+    
+    /* Секція історії для дуже великих екранів */
+    .story-content {
+        height: 400px;
+        padding: 30px;
+    }
+    
+    .story-content h3 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+    
+    .story-content p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
     }
 }
 
